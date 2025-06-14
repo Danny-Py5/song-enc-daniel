@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   View,
   StyleSheet,
+  Linking,
 } from "react-native";
 
 interface IProps {
@@ -64,11 +65,11 @@ const ApLayout: React.FC<IProps> = ({ title, children }) => {
         return (
           <Text style={styles.modalText}>
             23 Surulere Street continental Road Akure, Ondo State Nigeria
-            
           </Text>
         );
       case "Updates":
         return <Text style={styles.modalText}>No Update yet</Text>;
+
       default:
         return (
           <Text style={styles.modalText}>Select a page to view content</Text>
@@ -161,6 +162,16 @@ const ApLayout: React.FC<IProps> = ({ title, children }) => {
                 onPress={() => handleMenuItemSelect("Updates")}
               >
                 Updates
+              </Text>
+              <Text
+                style={styles.menuItem}
+                onPress={() =>
+                  Linking.openURL(
+                    "https://smokelessbriqs.org/privacy-policy-for-encyclopedia-of-gospel-songs"
+                  )
+                }
+              >
+                Privacy Policy
               </Text>
             </View>
           </TouchableOpacity>
